@@ -62,7 +62,7 @@ public class ClickHomeBase : MonoBehaviour {
                 all[i].gameObject.layer = LayerManager.Default;
                 
                 //variable for how quickly the bars fill up
-                int increment = 100 / 20;
+                int increment = 100 / 10;
                 // Take me to your leader
                 switch (all[i].type)
                 {

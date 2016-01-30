@@ -212,8 +212,19 @@ public class SpiritBase : MonoBehaviourCo {
         else if (layer == LayerManager.InnerRingTrigger)
         {
             gameObject.layer = LayerManager.SpiritClearedInner;
-			gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
+            StartCoroutine(FadeOutSprite(gameObject.GetComponentInChildren<SpriteRenderer>()));
             spawnTime = -1000.0f;
         }
+    }
+
+    public IEnumerator FadeOutSprite(SpriteRenderer sprite)
+    {
+        while (sprite.color.a > 0)
+        {
+            sprite.color = new Vector4(sprite.color.r, sprite.color.g, sprite.color.b, sprite.color.a - .05f);
+            yield return null;
+        }
+        sprite.enabled = false;
+
     }
 }
