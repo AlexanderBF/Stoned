@@ -64,6 +64,7 @@
      <Compile Include="Assets\_Scripts\Spirits\SpiritFire.cs" />
      <Compile Include="Assets\_Scripts\Spirits\SpiritSpawner.cs" />
      <Compile Include="Assets\_Scripts\Spirits\SpiritWater.cs" />
+     <Compile Include="Assets\_Scripts\StartGame.cs" />
      <Compile Include="Assets\_Scripts\StoneGrower.cs" />
      <Compile Include="Assets\_Scripts\StoneSpawner.cs" />
      <Compile Include="Assets\_Scripts\UIBarControl.cs" />
