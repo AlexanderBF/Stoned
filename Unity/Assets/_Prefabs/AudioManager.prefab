@@ -2864,7 +2864,7 @@ MonoBehaviour:
   _stealingBehaviour: 0
   _minimumPlaybackInterval: 0
   _overrideParentVolume: 0
-  _volume: .316227764
+  _volume: 1
   _volumeRandomization: 0
   _mute: 0
   _overrideParentPitch: 0
