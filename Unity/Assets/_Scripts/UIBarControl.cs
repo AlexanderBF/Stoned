@@ -23,20 +23,21 @@ public class UIBarControl : MonoBehaviourCo {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             fill += 10;
-            UpdateBar(fill);        }
+            StartCoroutine("UpdateBar", fill);        }
     }
 
     //public function for updating the bars
-    public void UpdateBar(float input)
+    public IEnumerator UpdateBar(float input)
     {
+        particles.Play();
+
+        while (maskTransform.rect.height < input)
+        {
             input = Mathf.Clamp(input, 0, 100);
             float fillIncrease = Mathf.Lerp(maskTransform.rect.height, input, Time.deltaTime * 30);
             maskTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fillIncrease);
             particles.transform.localPosition = new Vector3(0, input - 50, -5);
-
-        if (!particles.isPlaying)
-        {
-            particles.Play();
+            yield return null;
         }
     }
 
