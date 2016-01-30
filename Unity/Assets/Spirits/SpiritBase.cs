@@ -56,29 +56,30 @@ public class SpiritBase : MonoBehaviourCo {
     public GameObject impactCenter;
 
     private HomeBase center;
-
-    private bool hasStarted = false;
+    
+    private float spawnTime = 0.0f;
     void Start()
     {
-        hasStarted = true;
-
+        spawnTime = Time.time;
         this.center = FindObjectOfType<HomeBase>();
         Debug.Log(name + " => " + this.center.name);
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.velocity = transform.forward * speed;
+
+        StartEngine();
     }
 
     void FixedUpdate()
     {
-        if (!hasStarted) return;
-
         Rigidbody rb = GetComponent<Rigidbody>();
-        rb.AddForce((center.transform.position - transform.position).normalized * center.gravity);
+        rb.AddForce((center.transform.position - transform.position).normalized * center.gravity * Mathf.Lerp(0, 1, (Time.time - spawnTime)/20));
 
         Vector3 velocity = rb.velocity;
         velocity = velocity.normalized * speed;
         if (float.IsNaN(velocity.x))
             velocity = transform.forward * speed;
+
+        transform.LookAt(transform.position + velocity);
 
         rb.velocity = velocity;
     }
@@ -88,11 +89,17 @@ public class SpiritBase : MonoBehaviourCo {
     /// </summary>
     /// <param name="particleSystem">The particle sysstem.</param>
     /// <returns></returns>
-    protected GameObject CreateParticleSystem(GameObject particleSystem)
+    protected GameObject CreateParticleSystem(GameObject particleSystem, Vector3 location, bool parentToMe = true)
     {
-        GameObject go = Instantiate(particleSystem, transform.position, transform.rotation) as GameObject;
+        if(!particleSystem)
+        {
+            Debug.LogWarning("You are missing a particle emitter on " + name, this);
+            return null;
+        }
+        GameObject go = Instantiate(particleSystem, location, transform.rotation) as GameObject;
 
-        go.transform.parent = transform;
+        if(parentToMe)
+            go.transform.parent = transform;
 
         return go;
     }
@@ -102,15 +109,30 @@ public class SpiritBase : MonoBehaviourCo {
     /// </summary>
     virtual public void StartEngine()
     {
-        CreateParticleSystem(engine);
+        CreateParticleSystem(engine, transform.position, true);
     }
 
     /// <summary>
     /// Call this when the spirit impacts a stone
     /// </summary>
-    virtual public void ImpactStone()
+    virtual public void ImpactStone(Vector3 impactLocation)
     {
-        CreateParticleSystem(impactStone);
+        CreateParticleSystem(impactStone, impactLocation, false);
+
+        float impactTime = Time.time;
+        float originalSpeed = speed;
+        speed = 0.0f;
+
+        Do(() =>
+        {
+            if(Time.time - impactTime < 1.5f)
+            {
+                return true;
+            }
+
+            speed = originalSpeed;
+            return false;
+        });
     }
 
     /// <summary>
@@ -118,10 +140,10 @@ public class SpiritBase : MonoBehaviourCo {
     /// </summary>
     virtual public void ImpactCenter()
     {
-        CreateParticleSystem(impactCenter);
+        CreateParticleSystem(impactCenter, transform.position);
     }
 
-    public void OnColliderEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         int layer = collision.gameObject.layer;
 
@@ -131,7 +153,7 @@ public class SpiritBase : MonoBehaviourCo {
         }
         else if(layer == LayerManager.StoneWallInner || layer == LayerManager.StoneWallOuter)
         {
-            ImpactStone();
+            ImpactStone(collision.contacts[0].point);
         }
         else if(layer == LayerManager.Spirit)
         {
