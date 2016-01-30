@@ -125,6 +125,7 @@ MonoBehaviour:
   impactStone: {fileID: 0}
   impactCenter: {fileID: 0}
   death: {fileID: 177006, guid: 33deb019b59aee04aa2ad4f6aacd7def, type: 2}
+  type: 1
 --- !u!135 &13598350
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -203,6 +204,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_ReceiveShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
