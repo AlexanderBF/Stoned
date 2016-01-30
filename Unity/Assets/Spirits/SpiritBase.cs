@@ -39,6 +39,10 @@ public static class LayerManager
     {
         get { return LayerMask.NameToLayer("Spirit Cleared Inner"); }
     }
+    public static LayerMask Default
+    {
+        get { return LayerMask.NameToLayer("Default"); }
+    }
 }
 
 /// <summary>
@@ -62,6 +66,12 @@ public class SpiritBase : MonoBehaviourCo {
     public GameObject death;
 
     private HomeBase center;
+
+    public enum SpiritType
+    {
+        Fire, Air, Earth, Water
+    }
+    public SpiritType type;
     
     private float spawnTime = 0.0f;
     void Start()

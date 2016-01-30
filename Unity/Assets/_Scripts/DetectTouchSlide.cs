@@ -9,6 +9,7 @@ public class DetectTouchSlide : MonoBehaviourCo {
 
     public LayerMask raycastLayer;
     public Collider myCollider;
+	private float maxRotationSpeed = 1;
 	private bool stoneSoundOn = false;
 
     abstract private class Touch
@@ -125,7 +126,7 @@ public class DetectTouchSlide : MonoBehaviourCo {
     }
 
     bool alreadySliding = false;
-    float rotateAngle = 0.0f;
+    public float rotateAngle = 0.0f;
 
     IEnumerator Slide(Touch touch)
     {
@@ -134,15 +135,17 @@ public class DetectTouchSlide : MonoBehaviourCo {
         Vector3 lastPosition = touch.position;
 
         RaycastHit hit;
-        if(Physics.Raycast(Camera.main.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, raycastLayer))
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, raycastLayer))
         // if(myCollider.Raycast(Camera.main.ScreenPointToRay(touch.position), out hit, Mathf.Infinity))
         {
-            if(hit.collider != myCollider)
+            if (hit.collider != myCollider)
             {
                 // nay
                 yield break;
             }
         }
+        else
+            yield break;
 
         int fingerId = touch.fingerId;
 
@@ -166,11 +169,11 @@ public class DetectTouchSlide : MonoBehaviourCo {
 
                     Vector3 legA = position - screenPointCenter;
                     Vector3 legB = lastPosition - screenPointCenter;
-                    float angle = Vector3.Angle(legA, legB);
+                    float angle = Mathf.Clamp(Vector3.Angle(legA, legB), 0, maxRotationSpeed);
 
                     lastPosition = position;
 
-                    Debug.Log(angle);
+                    // Debug.Log(angle);
 
                     float sign = Mathf.Sign(
                         -Vector3.Cross(legA, legB).z
