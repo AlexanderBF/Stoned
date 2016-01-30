@@ -198,6 +198,7 @@ public class SpiritBase : MonoBehaviourCo {
     public void OnCollisionExit(Collision collision)
     {
         touchingStones.Remove(collision.rigidbody);
+
     }
 
     public void OnTriggerEnter(Collider other)
@@ -211,6 +212,7 @@ public class SpiritBase : MonoBehaviourCo {
         else if (layer == LayerManager.InnerRingTrigger)
         {
             gameObject.layer = LayerManager.SpiritClearedInner;
+			gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
             spawnTime = -1000.0f;
         }
     }
