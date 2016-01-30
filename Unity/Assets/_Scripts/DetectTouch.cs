@@ -6,16 +6,15 @@ public class DetectTouch : MonoBehaviour {
 	public Collider outerCircle;
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//detect touches
 		if (Input.touchCount > 0) {
-			for (int i = 0; i < Input.touchCount; i++) {
+			foreach(Touch touch in Input.touches) {
 				RaycastHit hit;
-				if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.GetTouch(i).position), out hit)) {
+				if(Physics.Raycast(Camera.main.ScreenPointToRay(touch.position), out hit)) {
 					if(hit.collider == innerCircle) {
 						Rotate(innerCircle, Vector3.down);
 					} else if (hit.collider == outerCircle) {
@@ -27,7 +26,7 @@ public class DetectTouch : MonoBehaviour {
 	}
 
 	void Rotate(Collider circle, Vector3 direction) {
+		Handheld.Vibrate();
 		circle.transform.Rotate(direction);
-		Handheld.Vibrate ();
 	}
 }
