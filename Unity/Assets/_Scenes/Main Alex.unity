@@ -198,6 +198,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   myCollider: {fileID: 1929372098}
+  rotateAngle: 0
 --- !u!1 &179101046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,6 +1542,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   myCollider: {fileID: 385369472}
+  rotateAngle: 0
 --- !u!1 &1242869750
 GameObject:
   m_ObjectHideFlags: 0
@@ -2419,6 +2421,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   homeCollider: {fileID: 1760352037}
+  fireParticles: {fileID: 135314, guid: 82d73c4c2f790ec498a22f08e24fa632, type: 2}
+  earthParticles: {fileID: 149966, guid: 983e827f4685bb14e89c4078b326aed4, type: 2}
+  airParticles: {fileID: 149818, guid: 0851da52c7bf7704e93e67ebe420d491, type: 2}
+  waterParticles: {fileID: 149818, guid: 2d65432e46812134098d8c82a5c2a682, type: 2}
 --- !u!1 &1788926320
 GameObject:
   m_ObjectHideFlags: 0
