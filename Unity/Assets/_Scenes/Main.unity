@@ -193,7 +193,7 @@ GameObject:
   - 64: {fileID: 385369472}
   m_Layer: 0
   m_Name: Outer Circle
-  m_TagString: Untagged
+  m_TagString: OuterCircle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -443,8 +443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a8999a7dc47ec41a827fa5c7354d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  innerCircle: {fileID: 0}
-  outerCircle: {fileID: 0}
+  innerCircle: {fileID: 1929372098}
+  outerCircle: {fileID: 385369472}
 --- !u!4 &939480530
 Transform:
   m_ObjectHideFlags: 0
@@ -920,7 +920,7 @@ GameObject:
   - 64: {fileID: 1929372098}
   m_Layer: 0
   m_Name: Inner Circle
-  m_TagString: Untagged
+  m_TagString: InnerCircle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
