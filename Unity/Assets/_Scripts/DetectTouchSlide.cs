@@ -9,6 +9,7 @@ public class DetectTouchSlide : MonoBehaviourCo {
 
     public LayerMask raycastLayer;
     public Collider myCollider;
+	private float maxRotationSpeed = 1;
 	private bool stoneSoundOn = false;
 
     abstract private class Touch
@@ -166,7 +167,7 @@ public class DetectTouchSlide : MonoBehaviourCo {
 
                     Vector3 legA = position - screenPointCenter;
                     Vector3 legB = lastPosition - screenPointCenter;
-                    float angle = Vector3.Angle(legA, legB);
+                    float angle = Mathf.Clamp(Vector3.Angle(legA, legB), 0, maxRotationSpeed);
 
                     lastPosition = position;
 
