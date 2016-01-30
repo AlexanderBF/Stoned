@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// Simple abstraction for getting the layers (in case of remodelling physics colliders etc)
@@ -30,6 +31,14 @@ public static class LayerManager
     {
         get { return LayerMask.NameToLayer("SafeFromInnerRing"); }
     }
+    public static LayerMask SpiritClearedOuter
+    {
+        get { return LayerMask.NameToLayer("Spirit Cleared Outer"); }
+    }
+    public static LayerMask SpiritClearedInner
+    {
+        get { return LayerMask.NameToLayer("Spirit Cleared Inner"); }
+    }
 }
 
 /// <summary>
@@ -40,12 +49,6 @@ public class SpiritBase : MonoBehaviourCo {
     [Tooltip("The speed the spirit moves forward in")]
     public float speed = 1.0f;
 
-    [HideInInspector]
-    public bool isSafeFromOuterRing = false;
-
-    [HideInInspector]
-    public bool isSafeFromInnerRing = false;
-
     [Tooltip("Prefab: The particle effect for regular motion")]
     public GameObject engine;
 
@@ -54,6 +57,9 @@ public class SpiritBase : MonoBehaviourCo {
 
     [Tooltip("Prefab: The particle effect to trigger when impacting the center/goal")]
     public GameObject impactCenter;
+
+    [Tooltip("Prefab: The particle effect to trigger when the spirit dies")]
+    public GameObject death;
 
     private HomeBase center;
     
@@ -72,7 +78,7 @@ public class SpiritBase : MonoBehaviourCo {
     void FixedUpdate()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-        rb.AddForce((center.transform.position - transform.position).normalized * center.gravity * Mathf.Lerp(0, 1, (Time.time - spawnTime)/20));
+        rb.AddForce((center.transform.position - transform.position).normalized * center.gravity * Mathf.Lerp(0, 1, (Time.time - spawnTime)/60));
 
         Vector3 velocity = rb.velocity;
         velocity = velocity.normalized * speed;
@@ -127,10 +133,15 @@ public class SpiritBase : MonoBehaviourCo {
         {
             if(Time.time - impactTime < 1.5f)
             {
+                if(!isTouchingStone)
+                {
+                    speed = originalSpeed;
+                    return false;
+                }
                 return true;
             }
 
-            speed = originalSpeed;
+            Die();
             return false;
         });
     }
@@ -143,6 +154,18 @@ public class SpiritBase : MonoBehaviourCo {
         CreateParticleSystem(impactCenter, transform.position);
     }
 
+    /// <summary>
+    /// Dies this instance.
+    /// </summary>
+    virtual public void Die()
+    {
+        CreateParticleSystem(death, transform.position, false);
+        Destroy(gameObject);
+    }
+
+    protected bool isTouchingStone { get { return touchingStones.Count > 0; } }
+    private List<Rigidbody> touchingStones = new List<Rigidbody>();
+
     public void OnCollisionEnter(Collision collision)
     {
         int layer = collision.gameObject.layer;
@@ -153,6 +176,7 @@ public class SpiritBase : MonoBehaviourCo {
         }
         else if(layer == LayerManager.StoneWallInner || layer == LayerManager.StoneWallOuter)
         {
+            touchingStones.Add(collision.rigidbody);
             ImpactStone(collision.contacts[0].point);
         }
         else if(layer == LayerManager.Spirit)
@@ -161,13 +185,23 @@ public class SpiritBase : MonoBehaviourCo {
         }
     }
 
+    public void OnCollisionExit(Collision collision)
+    {
+        touchingStones.Remove(collision.rigidbody);
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         int layer = other.gameObject.layer;
 
         if (layer == LayerManager.OuterRingTrigger)
-            isSafeFromOuterRing = true;
+        {
+            gameObject.layer = LayerManager.SpiritClearedOuter;
+        }
         else if (layer == LayerManager.InnerRingTrigger)
-            isSafeFromInnerRing = true;
+        {
+            gameObject.layer = LayerManager.SpiritClearedInner;
+            spawnTime = -1000.0f;
+        }
     }
 }
