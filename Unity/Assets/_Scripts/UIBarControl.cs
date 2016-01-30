@@ -3,7 +3,7 @@ using System.Collections;
 
 public class UIBarControl : MonoBehaviour {
 
-    public float fill;
+    public static float fill;
 
     GameObject mask;
     ParticleSystem particles;

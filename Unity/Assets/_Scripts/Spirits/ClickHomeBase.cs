@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ClickHomeBase : MonoBehaviour {
 
+    public float particleSpeedMultiplier = 2;
+
     public Collider homeCollider;
     GameObject fireBar;
     GameObject earthBar;
@@ -124,10 +126,11 @@ public class ClickHomeBase : MonoBehaviour {
         }
 
        var particleObject =  Instantiate(particles, gameObject.transform.position, Quaternion.identity) as GameObject;
+        particleObject.GetComponent<ParticleSystem>().startSize *= 0.7f;
 
         while (Vector3.SqrMagnitude(target.transform.position - particleObject.transform.position) >= 5)
         {
-            particleObject.transform.position = Vector3.Lerp(startPos, target.transform.position, Time.time - time);
+            particleObject.transform.position = Vector3.Lerp(startPos, target.transform.position, (Time.time - time) * particleSpeedMultiplier);
             yield return null;
         }
 
