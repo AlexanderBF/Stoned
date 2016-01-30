@@ -8,6 +8,9 @@ TagManager:
   - EarthPower
   - AirPower
   - WaterPower
+  - InnerCircle
+  - OuterCircle
+  - New Tag
   layers:
   - Default
   - TransparentFX
