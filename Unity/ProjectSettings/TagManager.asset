@@ -13,12 +13,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - GoalCenter
+  - StoneWallOuter
+  - StoneWallInner
+  - SafeFromOuterRing
+  - SafeFromInnerRing
+  - Spirit
   - 
   - 
   - 
