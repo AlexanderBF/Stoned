@@ -36,6 +36,10 @@ public class UIBarControl : MonoBehaviour {
     //function for powers
     public void UsePower()
     {
+        if (fill < 100)
+        {
+            return;
+        }
         switch (gameObject.tag)
         {
             case "FirePower":
