@@ -49,9 +49,15 @@ public class SpiritSpawner : MonoBehaviourCo {
             // Spawn a thing at the location of the spawn point
             SpiritBase toSpawn = nextToSpawn;
             //GameObject spawned = 
-                Instantiate(toSpawn.gameObject, spawnPoint.position, spawnPoint.rotation)
-                    //as GameObject
-                    ;
+
+			var clone = Instantiate(toSpawn.gameObject, spawnPoint.position, spawnPoint.rotation) as GameObject;
+
+            var nextSpiritIs = toSpawn.GetComponent<SpiritBase>().type;
+            Debug.Log("Spawning a spirit of type : " + nextSpiritIs);
+            
+            // play the appropriate element spirit sound
+			AudioManager.PlaySound("FX/Gameplay/Spirits/" + nextSpiritIs, clone);
+
         }
     }
 }
