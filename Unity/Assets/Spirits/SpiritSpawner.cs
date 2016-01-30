@@ -44,7 +44,7 @@ public class SpiritSpawner : MonoBehaviourCo {
             yield return new WaitForSeconds(delayBetweenSpawn + delayBetweenSpawnRandomizer * Random.value);
 
             // Rotate a random amount
-            transform.Rotate(Vector3.up, Random.value * 360.0f, Space.Self);
+            transform.Rotate(Vector3.forward, Random.value * 360.0f, Space.Self);
 
             // Spawn a thing at the location of the spawn point
             SpiritBase toSpawn = nextToSpawn;

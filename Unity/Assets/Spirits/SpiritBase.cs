@@ -57,21 +57,30 @@ public class SpiritBase : MonoBehaviourCo {
 
     private HomeBase center;
 
+    private bool hasStarted = false;
     void Start()
     {
-        this.center = FindObjectOfType<HomeBase>();
+        hasStarted = true;
 
+        this.center = FindObjectOfType<HomeBase>();
+        Debug.Log(name + " => " + this.center.name);
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.velocity = transform.forward * speed;
     }
 
     void FixedUpdate()
     {
+        if (!hasStarted) return;
+
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.AddForce((center.transform.position - transform.position).normalized * center.gravity);
 
         Vector3 velocity = rb.velocity;
         velocity = velocity.normalized * speed;
+        if (float.IsNaN(velocity.x))
+            velocity = transform.forward * speed;
+
+        rb.velocity = velocity;
     }
 
     /// <summary>
