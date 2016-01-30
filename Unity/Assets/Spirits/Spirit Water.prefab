@@ -125,7 +125,7 @@ MonoBehaviour:
   impactStone: {fileID: 0}
   impactCenter: {fileID: 0}
   death: {fileID: 185384, guid: a17238bb3f11ea94aba21acbe869dbc0, type: 2}
-  type: 0
+  type: 3
 --- !u!135 &13507094
 SphereCollider:
   m_ObjectHideFlags: 1
