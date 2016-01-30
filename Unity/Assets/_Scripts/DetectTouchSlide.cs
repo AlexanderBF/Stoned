@@ -9,6 +9,7 @@ public class DetectTouchSlide : MonoBehaviourCo {
 
     public LayerMask raycastLayer;
     public Collider myCollider;
+	private bool stoneSoundOn = false;
 
     abstract private class Touch
     {
@@ -192,9 +193,22 @@ public class DetectTouchSlide : MonoBehaviourCo {
         
     }
 
+	void Start() {
+		if (!stoneSoundOn) {
+			Debug.Log("Start the stone sound...");
+			AudioManager.PlaySound("FX/Gameplay/Stones-Move");
+			stoneSoundOn = true;
+		}
+	}
+
     void FixedUpdate()
     {
         transform.Rotate(Vector3.forward, rotateAngle);
         rotateAngle *= 0.5f;
+        Fabric.EventManager.Instance.SetParameter("FX/Gameplay/Stones-Move", "Speed", Mathf.Abs(rotateAngle), null);
+/*		if (rotateAngle > 0) {
+	        Debug.Log("Speed is: " + rotateAngle);
+	    }
+*/
     }
 }

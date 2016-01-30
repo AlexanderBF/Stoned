@@ -93,7 +93,6 @@ GameObject:
   - 114: {fileID: 11417592}
   - 114: {fileID: 11434576}
   - 114: {fileID: 11433188}
-  - 114: {fileID: 11497456}
   m_Layer: 0
   m_Name: Stones-Move
   m_TagString: Untagged
@@ -542,19 +541,19 @@ MonoBehaviour:
         _y: 1.58489256e-05
         _curveType: 0
         _locked: 0
-      - _x: .300000012
-        _y: .478471547
+      - _x: .0775000006
+        _y: .423375219
         _curveType: 0
         _locked: 0
-      - _x: .50999999
-        _y: 1
+      - _x: .172499999
+        _y: .928444386
         _curveType: 1
         _locked: 0
       - _x: 1
         _y: 1
         _curveType: 1
         _locked: 0
-      _selectedPoint: 1
+      _selectedPoint: 2
   _controlParameter: {fileID: 11433188}
 --- !u!114 &11406930
 MonoBehaviour:
@@ -1005,9 +1004,9 @@ MonoBehaviour:
   _max: 1
   _loopBehaviour: 1
   _velocity: 0
-  _seekSpeed: 0
-  _seekTarget: .00499999989
-  _value: .00430908194
+  _seekSpeed: .800000012
+  _seekTarget: 0
+  _value: 0
   _resetToDefaultValue: 0
   _markers:
     _markers: []
@@ -1169,7 +1168,7 @@ MonoBehaviour:
     _audioBuses: []
   _enableDebugLog: 0
   _bakeComponentInstances: 0
-  _allowExternalGroupComponents: 0
+  _allowExternalGroupComponents: 1
   _forceAxisVector: {x: 0, y: 0, z: 0}
   _languages:
   - _name: English
@@ -1476,28 +1475,6 @@ MonoBehaviour:
   _showInMixerView: 1
   _targetGroupComponentPath: 
   _ignoreUnloadUnusedAssets: 1
---- !u!114 &11497456
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1991936248, guid: 4b4e8768ed04d6a4f98af6f4f83be984, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _name: Default
-  _min: 0
-  _max: 1
-  _loopBehaviour: 0
-  _velocity: 0
-  _seekSpeed: 0
-  _seekTarget: 0
-  _value: 0
-  _resetToDefaultValue: 0
-  _markers:
-    _markers: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
