@@ -59,7 +59,7 @@ GameObject:
   - 4: {fileID: 462264}
   - 114: {fileID: 11418798}
   m_Layer: 0
-  m_Name: mx_george_lp
+  m_Name: mx_norsestyle_lp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -902,7 +902,7 @@ MonoBehaviour:
   Guid: 
   _componentHolder: {fileID: 0}
   _onEventNotifyEventName: 
-  _audioClip: {fileID: 8300000, guid: e2b2311ccec29457ab454c5e7fe7ccdd, type: 3}
+  _audioClip: {fileID: 8300000, guid: ee491792ea9014a789550f5366fb99cb, type: 3}
   _audioClipHandle:
     _audioClipPath: 
     _useAudioClipPath: 1
@@ -958,10 +958,10 @@ MonoBehaviour:
   _minDistance: 1
   _rolloffMode: 0
   _overrideFadeProperties: 0
-  _fadeInTime: 0
-  _fadeInCurve: .5
-  _fadeOutTime: 0
-  _fadeOutCurve: .5
+  _fadeInTime: 2
+  _fadeInCurve: .800000012
+  _fadeOutTime: 1.5
+  _fadeOutCurve: .800000012
   _reverbZoneMix: 1
   _overrideBypassProperties: 0
   _bypassEffects: 0
