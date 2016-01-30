@@ -177,7 +177,7 @@ public class DetectTouchSlide : MonoBehaviourCo {
                     );
 
                     rotateAngle = angle * sign;
-					Handheld.Vibrate();
+					Vibration.Vibrate(40);
                 }
                 else if(touch.phase == TouchPhase.Ended)
                 {
