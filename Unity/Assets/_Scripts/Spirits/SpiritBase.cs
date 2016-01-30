@@ -178,6 +178,13 @@ public class SpiritBase : MonoBehaviourCo {
     virtual public void Die()
     {
         CreateParticleSystem(death, transform.position, false);
+
+		// Find out what kind of Spirit this is we're about to kill
+        var thisSpiritType = this.GetComponent<SpiritBase>().type;
+        Debug.Log("the type is: " + thisSpiritType);
+		// Play a sound for the death of a spirit
+        AudioManager.PlaySound("FX/Gameplay/Spirits/Destroy/" + thisSpiritType, transform.gameObject);
+
         Destroy(gameObject);
     }
 

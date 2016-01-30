@@ -56,7 +56,7 @@ public class SpiritSpawner : MonoBehaviourCo {
             Debug.Log("Spawning a spirit of type : " + nextSpiritIs);
             
             // play the appropriate element spirit sound
-			AudioManager.PlaySound("FX/Gameplay/Spirits/" + nextSpiritIs, clone);
+			AudioManager.PlaySound("FX/Gameplay/Spirits/Spawn/" + nextSpiritIs, clone);
 
         }
     }
