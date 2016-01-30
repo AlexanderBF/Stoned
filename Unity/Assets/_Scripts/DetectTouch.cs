@@ -11,7 +11,7 @@ public class DetectTouch : MonoBehaviour {
 	public Collider outerCircle;
 	// Use this for initialization
 	void Start () {
-	
+		AudioManager.PlaySound("FX/Gameplay/Stones-Move");
 	}
 	
 	// Update is called once per frame
@@ -37,11 +37,7 @@ public class DetectTouch : MonoBehaviour {
                         Rotate(outerCircle, rotationAxis, rotationSpeedOuter);
                     }
                 }
-
-
             }
-
-
         }
         // Alex was here adding mouse input
         else if(Input.GetMouseButton(0))
@@ -63,10 +59,15 @@ public class DetectTouch : MonoBehaviour {
                 }
             }
         }
+		else {
+			Fabric.EventManager.Instance.SetParameter("FX/Gameplay/Stones-Move", "Speed", 0, null);
+		}
     }
 
 	void Rotate(Collider circle, Vector3 direction, float speed) {
         // circle.transform.Rotate(direction);
         circle.transform.parent.Rotate(direction, speed * Time.deltaTime);
+        Fabric.EventManager.Instance.SetParameter("FX/Gameplay/Stones-Move", "Speed", (speed * Time.deltaTime), null);
+//        Debug.Log("Speed is: " + speed * Time.deltaTime);
 	}
 }
