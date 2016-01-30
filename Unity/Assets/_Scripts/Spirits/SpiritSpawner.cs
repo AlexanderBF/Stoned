@@ -52,7 +52,7 @@ public class SpiritSpawner : MonoBehaviourCo {
 
 			var clone = Instantiate(toSpawn.gameObject, spawnPoint.position, spawnPoint.rotation) as GameObject;
 
-            var nextSpiritIs = toSpawn.GetComponent<SpiritBase>().type;
+            var nextSpiritIs = clone.GetComponent<SpiritBase>().type;
             Debug.Log("Spawning a spirit of type : " + nextSpiritIs);
             
             // play the appropriate element spirit sound
