@@ -151,6 +151,14 @@ public class SpiritBase : MonoBehaviourCo {
                 return true;
             }
 
+            // Grow the thing of a jig
+            StoneGrower grower = touchingStones[0].GetComponent<StoneGrower>();
+            if (!grower.Grow())
+            {
+                // GAME OVER
+                Debug.LogError("GAME OVER!");
+            }
+            
             Die();
             return false;
         });
@@ -188,6 +196,8 @@ public class SpiritBase : MonoBehaviourCo {
         {
             touchingStones.Add(collision.rigidbody);
             ImpactStone(collision.contacts[0].point);
+
+            
         }
         else if(layer == LayerManager.Spirit)
         {
