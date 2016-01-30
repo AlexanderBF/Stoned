@@ -24,6 +24,7 @@ public class UIBarControl : MonoBehaviour {
         fill += input;
         while (maskTransform.rect.height < fill)
         {
+            particles.Play();
             particles.gameObject.transform.localPosition = new Vector3(0, fill - 50, -1);
             fill = Mathf.Clamp(fill, 0, 100);
             maskTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Mathf.Lerp(maskTransform.rect.height, fill, Time.deltaTime * 30));

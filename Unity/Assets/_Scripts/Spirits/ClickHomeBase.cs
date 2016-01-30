@@ -86,15 +86,14 @@ public class ClickHomeBase : MonoBehaviour {
             {
                 Destroy(all[i].gameObject);
             }
-            yield return null;
-            //yield return StartCoroutine(Particles(all[i]));
+            yield return StartCoroutine(Particles(all[i]));
         }
 
 
         yield return null;
     }
 
-    /*IEnumerator Particles(SpiritBase spirit)
+    IEnumerator Particles(SpiritBase spirit)
     {
         GameObject particles;
         GameObject target;
@@ -126,15 +125,13 @@ public class ClickHomeBase : MonoBehaviour {
 
        var particleObject =  Instantiate(particles, gameObject.transform.position, Quaternion.identity) as GameObject;
 
-        while (Vector3.SqrMagnitude(target.transform.position - particleObject.transform.position) >= 10)
+        while (Vector3.SqrMagnitude(target.transform.position - particleObject.transform.position) >= 5)
         {
-            //target.GetComponent<RectTransformUtility>().WorldToScreenPoint (target.GetComponent<RectTransform>().rect, )
-
-            particleObject.transform.position = Vector3.Lerp(startPos, target.transform.position, time - Time.time);
+            particleObject.transform.position = Vector3.Lerp(startPos, target.transform.position, Time.time - time);
             yield return null;
         }
 
         Destroy(particleObject);
-    }*/
+    }
 
 }

@@ -47,14 +47,6 @@
   <ItemGroup>
      <Compile Include="Assets\Fabric\Scripts\FabricSpringBoard.cs" />
      <Compile Include="Assets\Spirits\ClickHomeBase.cs" />
-     <Compile Include="Assets\Spirits\HomeBase.cs" />
-     <Compile Include="Assets\Spirits\MonoBehaviourCo.cs" />
-     <Compile Include="Assets\Spirits\SpiritAir.cs" />
-     <Compile Include="Assets\Spirits\SpiritBase.cs" />
-     <Compile Include="Assets\Spirits\SpiritEarth.cs" />
-     <Compile Include="Assets\Spirits\SpiritFire.cs" />
-     <Compile Include="Assets\Spirits\SpiritSpawner.cs" />
-     <Compile Include="Assets\Spirits\SpiritWater.cs" />
      <Compile Include="Assets\VibrationPlugin\Sources\Vibration.cs" />
      <Compile Include="Assets\VibrationPlugin\Sources\VibrationActivity.cs" />
      <Compile Include="Assets\_Scripts\AudioManager.cs" />
@@ -63,6 +55,14 @@
      <Compile Include="Assets\_Scripts\DetectTouchSlide.cs" />
      <Compile Include="Assets\_Scripts\GameManager.cs" />
      <Compile Include="Assets\_Scripts\ShadowProjector.cs" />
+     <Compile Include="Assets\_Scripts\Spirits\HomeBase.cs" />
+     <Compile Include="Assets\_Scripts\Spirits\MonoBehaviourCo.cs" />
+     <Compile Include="Assets\_Scripts\Spirits\SpiritAir.cs" />
+     <Compile Include="Assets\_Scripts\Spirits\SpiritBase.cs" />
+     <Compile Include="Assets\_Scripts\Spirits\SpiritEarth.cs" />
+     <Compile Include="Assets\_Scripts\Spirits\SpiritFire.cs" />
+     <Compile Include="Assets\_Scripts\Spirits\SpiritSpawner.cs" />
+     <Compile Include="Assets\_Scripts\Spirits\SpiritWater.cs" />
      <Compile Include="Assets\_Scripts\StoneSpawner.cs" />
      <Compile Include="Assets\_Scripts\UIBarControl.cs" />
      <Compile Include="Assets\_Scripts\UIControlTest.cs" />
