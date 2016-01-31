@@ -3905,13 +3905,13 @@ MonoBehaviour:
   _override2DProperties: 0
   _pan2D: 0
   _pan2DRandomization: 0
-  _override3DProperties: 0
+  _override3DProperties: 1
   _priority: 128
   _panLevel: 1
   _spreadLevel: 0
   _dopplerLevel: 1
-  _maxDistance: 500
-  _minDistance: 1
+  _maxDistance: 100
+  _minDistance: 2
   _rolloffMode: 0
   _overrideFadeProperties: 0
   _fadeInTime: 0
