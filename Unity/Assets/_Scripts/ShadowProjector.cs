@@ -3,7 +3,18 @@ using System.Collections;
 
 public class ShadowProjector : MonoBehaviour {
 
-    public Transform directionalLight;
+    private static Transform p_directionalLight;
+    public Transform directionalLight
+    {
+        get
+        {
+            if (ShadowProjector.p_directionalLight == null)
+            {
+                ShadowProjector.p_directionalLight = FindObjectOfType<Light>().transform;
+            }
+            return ShadowProjector.p_directionalLight;
+        }
+    }
     public GameObject shadowPlane;
 
     public Transform shadowCastingVertex0;
@@ -51,7 +62,7 @@ public class ShadowProjector : MonoBehaviour {
         
         if (castToPlane.Raycast(ray, out distance))
         {
-            Debug.DrawRay(ray.origin, ray.direction * distance);
+            // Debug.DrawRay(ray.origin, ray.direction * distance);
             vertices[vertexIndex] = transform.InverseTransformPoint(ray.origin + ray.direction * distance);
         }
     }
