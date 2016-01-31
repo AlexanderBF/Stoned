@@ -228,6 +228,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &129826
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 408974}
+  - 114: {fileID: 11488444}
+  - 114: {fileID: 11495410}
+  m_Layer: 0
+  m_Name: Collected
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &130060
 GameObject:
   m_ObjectHideFlags: 1
@@ -1025,6 +1042,18 @@ Transform:
   - {fileID: 477334}
   m_Father: {fileID: 482590}
   m_RootOrder: 0
+--- !u!4 &408974
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129826}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 477334}
+  m_RootOrder: 3
 --- !u!4 &409982
 Transform:
   m_ObjectHideFlags: 1
@@ -1543,6 +1572,7 @@ Transform:
   - {fileID: 438032}
   - {fileID: 489336}
   - {fileID: 452418}
+  - {fileID: 408974}
   m_Father: {fileID: 407812}
   m_RootOrder: 1
 --- !u!4 &477352
@@ -6189,6 +6219,7 @@ MonoBehaviour:
   _eventList:
   - _UnSet_
   - DX/Dialog
+  - FX/Gameplay/Spirits/Collected
   - FX/Gameplay/Spirits/Destroy/Air
   - FX/Gameplay/Spirits/Destroy/Earth
   - FX/Gameplay/Spirits/Destroy/Fire
@@ -6387,6 +6418,159 @@ MonoBehaviour:
   _syncWithMusicTime: 0
   _markers: []
   _regions: []
+--- !u!114 &11488444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1973381776, guid: 4b4e8768ed04d6a4f98af6f4f83be984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxInstances: 20
+  _stealingBehaviour: 0
+  _minimumPlaybackInterval: 0
+  _overrideParentVolume: 0
+  _volume: .668343902
+  _volumeRandomization: 0
+  _mute: 0
+  _overrideParentPitch: 0
+  _pitch: 1
+  _pitchRandomization: 0
+  _override2DProperties: 0
+  _pan2D: 0
+  _pan2DRandomization: 0
+  _override3DProperties: 0
+  _priority: 128
+  _panLevel: 1
+  _spreadLevel: 0
+  _dopplerLevel: 1
+  _maxDistance: 500
+  _minDistance: 1
+  _rolloffMode: 0
+  _overrideFadeProperties: 0
+  _fadeInTime: 0
+  _fadeInCurve: .5
+  _fadeOutTime: 0
+  _fadeOutCurve: .5
+  _reverbZoneMix: 1
+  _overrideBypassProperties: 0
+  _bypassEffects: 0
+  _bypassListenerEffects: 0
+  _bypassReverbZones: 0
+  _overrideAudioMixerGroup: 0
+  _audioMixerGroup: {fileID: 0}
+  _audioBusName: 
+  _overrideAudioBus: 0
+  _overrideMusicTimeSettings: 0
+  _musicTimeSettingsIndex: -1
+  _musicTempo: -1
+  _musicTimeSignatureLower: 0
+  _musicTimeSignatureUpper: 0
+  _probability: 100
+  _multipleInstancesPerGameObject: 1
+  _componentVirtualization: 0
+  _overrideVolumeThreshold: 0
+  _volumeThreshold: 1
+  _virtualizationBehavior: 1
+  _RTPManager:
+    _parameters: []
+    _reference: {fileID: 0}
+  Guid: 
+  _componentHolder: {fileID: 0}
+  _onEventNotifyEventName: 
+  _audioClip: {fileID: 0}
+  _audioClipHandle:
+    _audioClipPath: 
+    _useAudioClipPath: 1
+  _dynamicAudioClipLoading: 0
+  _dynamicAudioClipUnloadDelay: 0
+  _dynamicAsyncAudioClipLoading: 0
+  _audioClipAssetPath: 0
+  _delay: 0
+  _delayInBeats: 0
+  _loop: 0
+  _numLoops: -1
+  _loopMarkersLoaded: 0
+  _useLoopMarkers: 1
+  _dontPlay: 0
+  _dontStopOnDestroy: 0
+  _ignoreVirtualization: 0
+  _randomizePosition: 0
+  _randomizeMinPosition: 0
+  _randomizeMaxPosition: 10
+  _syncWithMusicTime: 0
+  _markers: []
+  _regions: []
+  _playMode: 1
+  _randomWeights: 64000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000
+  _shareRandomNoRepeatHistory: 0
+  _audioClips:
+  - {fileID: 8300000, guid: 357235309c386416f97a560750648869, type: 3}
+  - {fileID: 8300000, guid: 2400a601698ca431884bdf47757e8efe, type: 3}
+  - {fileID: 8300000, guid: 31636a1103f3a42a39902e10eaa92ea9, type: 3}
+  - {fileID: 8300000, guid: 2dd462c1007a94cd5b922a75d37057de, type: 3}
+  - {fileID: 8300000, guid: b2a70422c45d94d3ba860bca7058fddb, type: 3}
+  - {fileID: 8300000, guid: d4c681629b7c94e0ab468fe71af2ec62, type: 3}
+  - {fileID: 8300000, guid: 9882e1c2168514da5a411816615aa662, type: 3}
+  - {fileID: 8300000, guid: 29db8ac2470ac46c9a97a4602f775b19, type: 3}
+  - {fileID: 8300000, guid: 5d979c63c8fba460da4e6c352e7820d6, type: 3}
+  - {fileID: 8300000, guid: 141364d35ca5e4fce9fe291c8037c83a, type: 3}
+  - {fileID: 8300000, guid: edba5f3450b684f2a9ea9a3385b3ffd2, type: 3}
+  - {fileID: 8300000, guid: f3f73e450e01541f5a18f1c3daa72548, type: 3}
+  - {fileID: 8300000, guid: 8d2a5c65e60e54a7f9ef30aaa528d432, type: 3}
+  - {fileID: 8300000, guid: 2b8e2575c389149d887054fcecf80ba5, type: 3}
+  - {fileID: 8300000, guid: d5f47c7538795410d9764f0f9289d5dd, type: 3}
+  - {fileID: 8300000, guid: 952dcd75f225f4c369ea706f64e5140c, type: 3}
+  - {fileID: 8300000, guid: 0bbf0795da779412a917c449be0c1c07, type: 3}
+  - {fileID: 8300000, guid: 949e7226fc4524f15a59b5851b02729c, type: 3}
+  - {fileID: 8300000, guid: ef731526cd28444d585af7b151081890, type: 3}
+  - {fileID: 8300000, guid: 600b56360b20e4305978a520012afa64, type: 3}
+  - {fileID: 8300000, guid: 1a24708679e2046a5885b4e1e3d78293, type: 3}
+  - {fileID: 8300000, guid: 465345e6f561c44cb8f65c546b56cfc0, type: 3}
+  - {fileID: 8300000, guid: 10325417778b04037b8607bac5b86b91, type: 3}
+  - {fileID: 8300000, guid: e8d40a278c7274659b115fcd155d6976, type: 3}
+  - {fileID: 8300000, guid: 613704577edbf48808c826fe05931a29, type: 3}
+  - {fileID: 8300000, guid: 19c24957370614239a000b904d683696, type: 3}
+  - {fileID: 8300000, guid: 79717af765a14470ea29e844e4e20980, type: 3}
+  - {fileID: 8300000, guid: c5453bf7ab1454683a3391424ce6d68a, type: 3}
+  - {fileID: 8300000, guid: 7fa0a869223b949e89db246970014001, type: 3}
+  - {fileID: 8300000, guid: e97633c96c8f748488171956e68bd8f0, type: 3}
+  - {fileID: 8300000, guid: c6d574f9c402f49a0af41845dbba496d, type: 3}
+  - {fileID: 8300000, guid: 30b1011af806a484f81dadf848154647, type: 3}
+  - {fileID: 8300000, guid: f47edf2a66bf14896a9995c6d432652a, type: 3}
+  - {fileID: 8300000, guid: bfb38b4aba5684a71af2221c3b01b159, type: 3}
+  - {fileID: 8300000, guid: 3ebe086a82edd4e45a9c6cbdafb2e06c, type: 3}
+  - {fileID: 8300000, guid: 989db08aa4f604d73a893265fa028e8a, type: 3}
+  - {fileID: 8300000, guid: 3642be3bc956b4b1089b4876507478dc, type: 3}
+  - {fileID: 8300000, guid: fd70b67b85e1b40af9b4bf631d886c2b, type: 3}
+  - {fileID: 8300000, guid: 82a6118b0e25f447287e063b48882033, type: 3}
+  - {fileID: 8300000, guid: c6ceabcb03b9f4a76ac8e73a856ad85c, type: 3}
+  - {fileID: 8300000, guid: 1a35fcdb2bce945bf9e0f919cd89d578, type: 3}
+  - {fileID: 8300000, guid: 4f43342c6d7fa4eb9a2ab1744f9388d4, type: 3}
+  - {fileID: 8300000, guid: 22d8154c7cf4d440b825fb26fd9b474c, type: 3}
+  - {fileID: 8300000, guid: 1900c36c508e54a329871017ef501622, type: 3}
+  - {fileID: 8300000, guid: b7552c6cfd39d4152b0296b3c52bedee, type: 3}
+  - {fileID: 8300000, guid: cd65c12db860747b48666616772a0b02, type: 3}
+  - {fileID: 8300000, guid: 638d298d04ddc4c7dbb7683b94db0f01, type: 3}
+  - {fileID: 8300000, guid: 28fa7a9d406e14afca3058dd13665fbd, type: 3}
+  - {fileID: 8300000, guid: 163dc41e3b0634555b4ea9ac62e16978, type: 3}
+  - {fileID: 8300000, guid: 94eecc2e7c6fb425a9ba973ead680778, type: 3}
+  - {fileID: 8300000, guid: 21d9f24eea82a4ce8803fbe503746505, type: 3}
+  - {fileID: 8300000, guid: 6e51c2ce097c14386b04253e41073baf, type: 3}
+  - {fileID: 8300000, guid: 8f70aede827614cda8f55dbd21caa2fc, type: 3}
+  - {fileID: 8300000, guid: 2b7d8e4fec047406999e6c45b97dfb7f, type: 3}
+  - {fileID: 8300000, guid: b0421c8fa5de44463abe969c6a3c42be, type: 3}
+  - {fileID: 8300000, guid: efa8359f77a164e1db14235c62aaa171, type: 3}
+  - {fileID: 8300000, guid: 35b984bf2bbfe49498d0566c31c09cee, type: 3}
+  - {fileID: 8300000, guid: 1056d3cf8b3d84233993e385fe5beee8, type: 3}
+  _looped: 0
+  _delayOnFirstPlay: 0
+  _loopDelay: 0
+  _delayRandomization: 0
+  _delayMaxRandomization: 0
 --- !u!114 &11489076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6658,6 +6842,39 @@ MonoBehaviour:
   _syncWithMusicTime: 0
   _markers: []
   _regions: []
+--- !u!114 &11495410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1137554331, guid: 4b4e8768ed04d6a4f98af6f4f83be984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventName: FX/Gameplay/Spirits/Collected
+  _eventID: 0
+  _overrideEventTriggerAction: 0
+  _overrideParameters:
+    _overrideIncomingEventAction: 0
+    _incomingEventAction: 0
+    _overrideEventAction: 0
+    _type: 0
+    _floatParameter: 1
+    _stringParameter: 
+    _switchPresetData:
+      _sourcePreset: 
+      _targetPreset: 
+    _dspParameterData:
+      _dspType: 0
+      _parameter: 
+      _value: 0
+      _time: 0
+      _curve: .5
+    _transitionToSnapshotData:
+      _snapshot: 
+      _timeToReach: 0
 --- !u!114 &11495646
 MonoBehaviour:
   m_ObjectHideFlags: 1
