@@ -65,6 +65,7 @@ public class UIBarControl : MonoBehaviour {
                 fill = 0;
                 UpdateBar(fill);
 				AudioManager.PlaySound("FX/Gameplay/Totem/Use/Fire");
+				Vibration.Vibrate(1500);
                 Debug.Log("Fire");
                 break;
 
@@ -75,6 +76,7 @@ public class UIBarControl : MonoBehaviour {
                 fill = 0;
                 UpdateBar(fill);
 				AudioManager.PlaySound("FX/Gameplay/Totem/Use/Earth");
+				Vibration.Vibrate(1500);
                 Debug.Log("Earth");
                 break;
 
@@ -85,6 +87,7 @@ public class UIBarControl : MonoBehaviour {
                 fill = 0;
                 UpdateBar(fill);
 				AudioManager.PlaySound("FX/Gameplay/Totem/Use/Air");
+				Vibration.Vibrate(1500);
                 Debug.Log("Air");
                 break;
 
@@ -95,6 +98,7 @@ public class UIBarControl : MonoBehaviour {
                 fill = 0;
                 UpdateBar(fill);
 				AudioManager.PlaySound("FX/Gameplay/Totem/Use/Water");
+				Vibration.Vibrate(1500);
                 Debug.Log("Water");
                 break;
 
