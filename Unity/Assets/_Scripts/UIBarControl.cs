@@ -64,6 +64,7 @@ public class UIBarControl : MonoBehaviour {
                 FindObjectOfType<SpiritPool>().darkenPool();
                 fill = 0;
                 UpdateBar(fill);
+				AudioManager.PlaySound("FX/Gameplay/Totem/Use/Fire");
                 Debug.Log("Fire");
                 break;
 
@@ -73,6 +74,7 @@ public class UIBarControl : MonoBehaviour {
                 FindObjectOfType<SpiritPool>().darkenPool();
                 fill = 0;
                 UpdateBar(fill);
+				AudioManager.PlaySound("FX/Gameplay/Totem/Use/Earth");
                 Debug.Log("Earth");
                 break;
 
@@ -82,6 +84,7 @@ public class UIBarControl : MonoBehaviour {
                 FindObjectOfType<SpiritPool>().darkenPool();
                 fill = 0;
                 UpdateBar(fill);
+				AudioManager.PlaySound("FX/Gameplay/Totem/Use/Air");
                 Debug.Log("Air");
                 break;
 
@@ -91,6 +94,7 @@ public class UIBarControl : MonoBehaviour {
                 FindObjectOfType<SpiritPool>().darkenPool();
                 fill = 0;
                 UpdateBar(fill);
+				AudioManager.PlaySound("FX/Gameplay/Totem/Use/Water");
                 Debug.Log("Water");
                 break;
 
