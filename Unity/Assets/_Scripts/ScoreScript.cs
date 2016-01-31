@@ -4,9 +4,6 @@ using System.Collections;
 public class ScoreScript : MonoBehaviour {
 
     public int days;
-
-    public Texture2D fadeTexture;
-    public float fadeSpeed;
     public GameObject sun;
     public float spiralConstant;
 
