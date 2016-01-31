@@ -8,6 +8,7 @@ public class ScoreScript : MonoBehaviour {
     public Texture2D fadeTexture;
     public float fadeSpeed;
     public GameObject sun;
+    public float spiralConstant;
 
     GameObject mainCam;
     float alpha;
@@ -16,6 +17,14 @@ public class ScoreScript : MonoBehaviour {
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(EndGame());
+        }
     }
 
     void OnGUI()
@@ -36,18 +45,14 @@ public class ScoreScript : MonoBehaviour {
 
     public IEnumerator SunCounter(int count)
     {
-        Vector3 spawnPos = new Vector3(-3, 4, 0);
+        Vector3 spawnPos = new Vector3(0, 0, 0);
+        float spiralAngle = 0;
         while (count > 0)
         {
             Instantiate(sun, spawnPos, Quaternion.identity);
-            StartCoroutine(ScreenShake(.1f));
             //screenshake, sound effect, whatever
-            spawnPos.x += .5f;
-            if (spawnPos.x >= 3)
-            {
-                spawnPos.x = -3;
-                spawnPos.y -= 1;
-            }
+            spawnPos = new Vector3(spiralConstant * spiralAngle * Mathf.Cos(spiralAngle), spiralConstant * spiralAngle * Mathf.Sin(spiralAngle), 0);
+            spiralAngle += Mathf.PI / 10;
             count--;
             yield return new WaitForSeconds(.1f);
         }
@@ -70,11 +75,14 @@ public class ScoreScript : MonoBehaviour {
 
     void OnLevelWasLoaded()
     {
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera");
-        fade = -1;
-        if (days > 0)
+        if (Application.loadedLevelName == "EndScene")
         {
-            StartCoroutine(SunCounter(days));
+            mainCam = GameObject.FindGameObjectWithTag("MainCamera");
+            fade = -1;
+            if (days > 0)
+            {
+                StartCoroutine(SunCounter(days));
+            }
         }
     }
 }
