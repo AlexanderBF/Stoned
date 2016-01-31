@@ -53,6 +53,7 @@ public class ScoreScript : MonoBehaviour {
             //screenshake, sound effect, whatever
             spawnPos = new Vector3(spiralConstant * spiralAngle * Mathf.Cos(spiralAngle), spiralConstant * spiralAngle * Mathf.Sin(spiralAngle), 0);
             spiralAngle += Mathf.PI / 10;
+            spiralConstant -= spiralConstant * 0.01f;
             count--;
             yield return new WaitForSeconds(.1f);
         }
