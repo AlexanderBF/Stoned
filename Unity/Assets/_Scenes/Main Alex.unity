@@ -354,6 +354,7 @@ MonoBehaviour:
     m_Bits: 16384
   myCollider: {fileID: 1929372098}
   maxRotationSpeed: 25
+  audioTarget: {fileID: 10712921}
   rotateAngle: 0
 --- !u!1 &201445622
 GameObject:
@@ -1126,6 +1127,7 @@ MonoBehaviour:
     m_Bits: 16384
   myCollider: {fileID: 385369472}
   maxRotationSpeed: 25
+  audioTarget: {fileID: 370253927}
   rotateAngle: 0
 --- !u!1 &1286102587
 GameObject:
