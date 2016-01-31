@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class SpiritPool : MonoBehaviour {
@@ -14,6 +14,9 @@ public class SpiritPool : MonoBehaviour {
 	
 	public void darkenPool() {
 		pool = this.gameObject.GetComponent<ParticleSystem> ();
-		pool.Stop();
-	}
+        pool.startColor = new Color(32.0f / 255,
+                                    32.0f / 255,
+                                    32.0f / 255,
+                                    32.0f / 255);
+    }
 }
