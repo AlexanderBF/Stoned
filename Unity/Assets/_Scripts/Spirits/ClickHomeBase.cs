@@ -104,7 +104,7 @@ public class ClickHomeBase : MonoBehaviour {
     {
         GameObject particles;
         GameObject target;
-        Vector3 startPos = spirit.transform.position;
+        Vector3 startPos = new Vector3(0, 0, 0);
         float time = Time.time;
         switch (spirit.type)
         {

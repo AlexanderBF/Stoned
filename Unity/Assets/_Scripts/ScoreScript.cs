@@ -16,11 +16,15 @@ public class ScoreScript : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
+    //for testing
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(EndGame());
+            if (Application.loadedLevelName == "Main Alex")
+            {
+                StartCoroutine(EndGame());
+            }
         }
     }
 
@@ -31,6 +35,12 @@ public class ScoreScript : MonoBehaviour {
         Application.LoadLevel("EndScene");
     }
 
+    public  IEnumerator RestartGame()
+    {
+        float fadeTime = GameObject.Find("GameManager").GetComponent<Fader>().BeginFade(1);
+        yield return new WaitForSeconds(fadeTime);
+        Application.LoadLevel("TitleScreen");
+    }
     public IEnumerator SunCounter(int count)
     {
         Vector3 spawnPos = new Vector3(0, 0, 0);
@@ -45,21 +55,11 @@ public class ScoreScript : MonoBehaviour {
             count--;
             yield return new WaitForSeconds(.1f);
         }
-    }
-
-    public IEnumerator ScreenShake(float time)
-    {
-        float timer = 0;
-        Vector3 startPos= mainCam.transform.position;
-        while (timer <= time)
+        if (Input.touchCount == 0)
         {
-            Vector3 randomPosition = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), mainCam.transform.position.z);
-            mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, randomPosition, Time.deltaTime);
-            timer += Time.deltaTime;
+            yield return new WaitForSeconds(2);
         }
-        yield return null;
-        mainCam.transform.position = startPos;
-
+        yield return StartCoroutine(RestartGame());
     }
 
     void OnLevelWasLoaded()
