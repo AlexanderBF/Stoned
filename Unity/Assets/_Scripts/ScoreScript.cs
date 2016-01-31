@@ -27,18 +27,9 @@ public class ScoreScript : MonoBehaviour {
         }
     }
 
-    void OnGUI()
-    {
-        alpha += (fadeSpeed * Time.deltaTime) * fade;
-        Mathf.Clamp01(alpha);
-
-        GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, alpha);
-        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeTexture);
-    }
-
     public IEnumerator EndGame()
     {
-        fade = 1;
+		float fadeTime = GameObject.Find ("GameManager").GetComponent<Fader> ().BeginFade (1);
         yield return new WaitForSeconds(fadeSpeed);
         Application.LoadLevel("EndScene");
     }
