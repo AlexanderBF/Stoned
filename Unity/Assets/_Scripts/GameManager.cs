@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
@@ -8,6 +8,12 @@ public class GameManager : MonoBehaviour {
 	void Awake () {
 		Debug.Log("Loading AudioManager...");
 		// Load the Fabric manager by loading up the Audio scene!
+        if(AudioManager.FabricLoaded)
+        {
+            enabled = false;
+            Destroy(gameObject);
+            return;
+        }
 		AudioManager.LoadFabric();
 	}
 
