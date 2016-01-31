@@ -136,7 +136,7 @@ public class ClickHomeBase : MonoBehaviour {
         }
 
        var particleObject =  Instantiate(particles, gameObject.transform.position, Quaternion.identity) as GameObject;
-        particleObject.GetComponent<ParticleSystem>().startSize *= 0.7f;
+        particleObject.GetComponent<ParticleSystem>().startSize *= 0.3f;
         AudioManager.PlaySound("FX/Gameplay/Spirits/Totem-Move", particleObject);
 
         while (Vector3.SqrMagnitude(target.transform.position - particleObject.transform.position) >= 5)

@@ -8,6 +8,7 @@ public class UIBarControl : MonoBehaviour {
     GameObject mask;
     ParticleSystem particles;
     RectTransform maskTransform;
+    UnityEngine.UI.Image powerOn;
 
     void Start()
     {
@@ -15,8 +16,22 @@ public class UIBarControl : MonoBehaviour {
         mask = gameObject.transform.FindChild("Mask").gameObject;
         maskTransform = mask.GetComponent<RectTransform>();
         particles = gameObject.GetComponentInChildren<ParticleSystem>();
+        powerOn = gameObject.GetComponent<RectTransform>().FindChild("PowerOn").gameObject.GetComponent<UnityEngine.UI.Image>();
 
+    }
 
+    void Update()
+    {
+        if (fill < 100)
+        {
+            powerOn.enabled = false;
+        }
+        else
+        {
+            powerOn.enabled = true;
+        }
+        //10 is an offset to account for the frame
+        maskTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Mathf.Lerp(maskTransform.rect.height, fill + 10, Time.deltaTime * 30));
     }
 
     //public function for updating the bars
@@ -28,9 +43,8 @@ public class UIBarControl : MonoBehaviour {
             particles.Play();
             particles.gameObject.transform.localPosition = new Vector3(0, fill - 40, -1);
             fill = Mathf.Clamp(fill, 0, 100);
-            //10 is an offset to account for the frame
-            maskTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Mathf.Lerp(maskTransform.rect.height, fill + 10, Time.deltaTime * 30));
             yield return null;
+
         }
         particles.Stop();
     }
