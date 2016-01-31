@@ -47,14 +47,20 @@ public class ScoreScript : MonoBehaviour {
             spawnDelay -= (spawnDelay - 0.1f) * 0.1f;
             yield return new WaitForSeconds(spawnDelay);
         }
-        yield return StartCoroutine(RestartGame());
+        if (count == 0)
+        {
+            yield return StartCoroutine(RestartGame());
+        }
     }
 
     void OnLevelWasLoaded()
     {
+        if (Application.loadedLevelName == "Main Alex")
+        {
+            days = 0;
+        }
         if (Application.loadedLevelName == "EndScene")
         {
-            mainCam = GameObject.FindGameObjectWithTag("MainCamera");
             if (days > 0)
             {
                 StartCoroutine(SunCounter(days));
