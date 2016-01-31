@@ -61,6 +61,7 @@ public class UIBarControl : MonoBehaviour {
             case "FirePower":
                 StoneGrower.Clean();
                 CleanParticleController.Clean(SpiritBase.SpiritType.Fire);
+                FindObjectOfType<SpiritPool>().darkenPool();
                 fill = 0;
                 UpdateBar(fill);
                 Debug.Log("Fire");
@@ -69,6 +70,7 @@ public class UIBarControl : MonoBehaviour {
             case "EarthPower":
                 StoneGrower.Clean();
                 CleanParticleController.Clean(SpiritBase.SpiritType.Earth);
+                FindObjectOfType<SpiritPool>().darkenPool();
                 fill = 0;
                 UpdateBar(fill);
                 Debug.Log("Earth");
@@ -77,6 +79,7 @@ public class UIBarControl : MonoBehaviour {
             case "AirPower":
                 StoneGrower.Clean();
                 CleanParticleController.Clean(SpiritBase.SpiritType.Air);
+                FindObjectOfType<SpiritPool>().darkenPool();
                 fill = 0;
                 UpdateBar(fill);
                 Debug.Log("Air");
@@ -85,6 +88,7 @@ public class UIBarControl : MonoBehaviour {
             case "WaterPower":
                 StoneGrower.Clean();
                 CleanParticleController.Clean(SpiritBase.SpiritType.Water);
+                FindObjectOfType<SpiritPool>().darkenPool();
                 fill = 0;
                 UpdateBar(fill);
                 Debug.Log("Water");
