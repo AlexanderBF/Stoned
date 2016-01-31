@@ -10,6 +10,7 @@ public class DetectTouchSlide : MonoBehaviourCo {
     public LayerMask raycastLayer;
     public Collider myCollider;
 	public float maxRotationSpeed = 25;
+	public GameObject audioTarget;
 	private bool stoneSoundOn = false;
 
     abstract private class Touch
@@ -202,7 +203,10 @@ public class DetectTouchSlide : MonoBehaviourCo {
     {
         transform.Rotate(Vector3.forward, rotateAngle);
         rotateAngle *= 0.5f;
-        Fabric.EventManager.Instance.SetParameter("FX/Gameplay/Stones-Move", "Speed", Mathf.Abs(rotateAngle), this.gameObject.transform.GetChild(3).gameObject);
+		Fabric.EventManager.Instance.SetParameter("FX/Gameplay/Stones-Move", 
+		                                          "Speed", 
+		                                          Mathf.Abs(rotateAngle), 
+		                                          this.gameObject.transform.FindChild(audioTarget.transform.name).gameObject);
 
     }
 }
