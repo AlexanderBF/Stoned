@@ -85,7 +85,7 @@ LightmapSettings:
     m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
---- !u!1001 &1181151285
+--- !u!1001 &436873892
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
