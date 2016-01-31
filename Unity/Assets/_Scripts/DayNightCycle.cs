@@ -10,7 +10,7 @@ public class DayNightCycle : MonoBehaviour {
 
     void Start()
     {
-        score = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreScript>();
+        // score = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreScript>();
     }
 	
 	// Update is called once per frame
