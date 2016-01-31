@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Water Particle
-  m_Shader: {fileID: 203, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: Portal Particle
+  m_Shader: {fileID: 202, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 3000
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: c1e9ab9939fb84944b1e0f4bac2489ae, type: 3}
+          m_Texture: {fileID: 2800000, guid: ce20289b5bd34664cb5770dba0578033, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -93,6 +93,10 @@ Material:
         second: .5
       data:
         first:
+          name: _InvFade
+        second: .360000014
+      data:
+        first:
           name: _Parallax
         second: .0199999996
       data:
@@ -127,10 +131,6 @@ Material:
         first:
           name: _Metallic
         second: 0
-      data:
-        first:
-          name: _InvFade
-        second: 1
     m_Colors:
       data:
         first:
@@ -143,4 +143,4 @@ Material:
       data:
         first:
           name: _TintColor
-        second: {r: .25, g: .627586305, b: 1, a: .5}
+        second: {r: .191176474, g: .191176474, b: .191176474, a: .5}
