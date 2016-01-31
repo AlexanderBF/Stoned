@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class StoneGrower : MonoBehaviourCo {
 
@@ -22,18 +23,49 @@ public class StoneGrower : MonoBehaviourCo {
         }
     }
 
-    public bool Grow()
+    public static void Clean()
+    {
+        foreach(StoneGrower grower in allGrowers)
+        {
+            grower.DoClean();
+        }
+    }
+    public void DoClean()
+    {
+        colliderAdd0.SetActive(false);
+        colliderAdd1.SetActive(false);
+
+        IGrowAndShrinkAnimation[] children = GetComponentsInChildren<IGrowAndShrinkAnimation>();
+        foreach (IGrowAndShrinkAnimation anim in children)
+        {
+            anim.Shrink();
+        }
+    }
+
+    private static List<StoneGrower> allGrowers = new List<StoneGrower>();
+    void OnEnable()
+    {
+        StoneGrower.allGrowers.Add(this);
+    }
+
+    void OnDisable()
+    {
+        StoneGrower.allGrowers.Remove(this);
+    }
+
+    public bool Grow(SpiritBase.SpiritType type)
     {
         if (colliderAdd0.activeSelf)
         {
             if (colliderAdd1.activeSelf)
             {
+
                 // Already grown, grow next or prev
                 StoneGrower canGrow = NearestCanGrow();
 
-                if(canGrow)
+                if (canGrow)
                 {
-                    canGrow.Grow();
+                    canGrow.Grow(type);
                     return true;
                 }
                 return false;
@@ -41,32 +73,65 @@ public class StoneGrower : MonoBehaviourCo {
 
             colliderAdd1.SetActive(true);
         }
-        else colliderAdd0.SetActive(true);
+        else
+        {
+            colliderAdd0.SetActive(true);
+            colliderAdd1.SetActive(true);
+
+            IGrowAndShrinkAnimation[] children = GetComponentsInChildren<IGrowAndShrinkAnimation>();
+            foreach(IGrowAndShrinkAnimation anim in children)
+            {
+                anim.Grow(type);
+            }
+        }
 
         return true;
     }
 
     public bool CanGrow()
     {
-        return (!colliderAdd0.activeSelf || !colliderAdd1);
+        return (!colliderAdd0.activeSelf || !colliderAdd1.activeSelf);
     }
     public StoneGrower NearestCanGrow()
     {
-        if(CanGrow())
-            return this;
+        // if(CanGrow())
+        //     return this;
+        // 
+        // if (next.CanGrow())
+        //     return next;
+        // 
+        // StoneGrower p = prev;
+        // 
+        // while(!p.CanGrow())
+        // {
+        //     p = p.next;
+        //     if (p == this)
+        //         return null;
+        // }
+        // 
+        // return p;
+        List<StoneGrower> list = new List<StoneGrower>();
+        StoneGrower[] all = transform.parent.GetComponentsInChildren<StoneGrower>();
 
-        if (next.CanGrow())
-            return next;
-
-        StoneGrower p = prev;
-
-        while(!p.CanGrow())
+        foreach(StoneGrower sg in all)
         {
-            p = p.next;
-            if (p == this)
-                return null;
+            if (sg.CanGrow())
+                list.Add(sg);
         }
 
-        return p;
+        Vector3 position = transform.position;
+        list.Sort((a,b) =>
+        {
+            float m0 = (position - a.transform.position).magnitude;
+            float m1 = (position - b.transform.position).magnitude;
+
+            if (m0 < m1) return -1;
+            return 1;
+        });
+
+        if (list.Count > 0)
+            return list[0];
+
+        return null;
     }
 }

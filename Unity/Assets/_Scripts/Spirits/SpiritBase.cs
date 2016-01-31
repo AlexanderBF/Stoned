@@ -153,7 +153,7 @@ public class SpiritBase : MonoBehaviourCo {
 
             // Grow the thing of a jig
             StoneGrower grower = touchingStones[0].GetComponent<StoneGrower>();
-            if (!grower.Grow())
+            if (!grower.Grow(type))
             {
                 // GAME OVER
                 Debug.LogError("GAME OVER!");
