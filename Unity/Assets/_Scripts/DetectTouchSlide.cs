@@ -9,7 +9,7 @@ public class DetectTouchSlide : MonoBehaviourCo {
 
     public LayerMask raycastLayer;
     public Collider myCollider;
-	public float maxRotationSpeed = 120;
+	public float maxRotationSpeed = 25;
 	private bool stoneSoundOn = false;
 
     abstract private class Touch
