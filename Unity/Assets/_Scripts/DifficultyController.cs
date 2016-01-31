@@ -22,6 +22,8 @@ public class DifficultyController : MonoBehaviourCo {
 
     [Tooltip("Multiplier for rotation speed as the game progresses")]
     public AnimationCurve controlRotationSpeed = AnimationCurve.Linear(0, 1, 1, 1);
+    [Tooltip("Spirits required to activate the powers")]
+    public AnimationCurve requiredSpirits = AnimationCurve.Linear(0, 5, 60 * 10, 5);
 
     [Tooltip("How often do we update the difficulty settings")]
     public float intervalForProgressionChanges = 5;
@@ -43,6 +45,7 @@ public class DifficultyController : MonoBehaviourCo {
 
             spawner.delayBetweenSpawn = spawnDelay.Evaluate(dTime);
             spawner.delayBetweenSpawnRandomizer = spawnRandomDelay.Evaluate(dTime);
+            ClickHomeBase.spiritsPerPower = requiredSpirits.Evaluate(dTime);
 
             foreach(SpiritBase sb in spiritPrefabs)
             {
