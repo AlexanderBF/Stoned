@@ -181,7 +181,7 @@ public class SpiritBase : MonoBehaviourCo {
 
 		// Find out what kind of Spirit this is we're about to kill
         var thisSpiritType = this.GetComponent<SpiritBase>().type;
-        Debug.Log("the type is: " + thisSpiritType);
+
 		// Play a sound for the death of a spirit
         AudioManager.PlaySound("FX/Gameplay/Spirits/Destroy/" + thisSpiritType, transform.gameObject);
 
@@ -231,7 +231,15 @@ public class SpiritBase : MonoBehaviourCo {
             gameObject.layer = LayerManager.SpiritClearedInner;
             StartCoroutine(FadeOutSprite(gameObject.GetComponentInChildren<SpriteRenderer>()));
             spawnTime = -1000.0f;
+
+			// Find out what kind of Spirit this is we're about to kill
+			var thisSpiritType = transform.GetComponent<SpiritBase>().type;
+
+			// Kill this spirit's sound
+			Fabric.EventManager.Instance.PostEvent("FX/Gameplay/Spirits/Spawn/" + thisSpiritType, Fabric.EventAction.StopSound, null, transform.gameObject);
+
         }
+
     }
 
     public IEnumerator FadeOutSprite(SpriteRenderer sprite)

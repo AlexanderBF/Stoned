@@ -2628,7 +2628,7 @@ MonoBehaviour:
   _overrideFadeProperties: 0
   _fadeInTime: .5
   _fadeInCurve: .800000012
-  _fadeOutTime: 0
+  _fadeOutTime: 2.25
   _fadeOutCurve: .5
   _reverbZoneMix: 1
   _overrideBypassProperties: 0
@@ -2712,7 +2712,7 @@ MonoBehaviour:
   _stealingBehaviour: 0
   _minimumPlaybackInterval: 0
   _overrideParentVolume: 0
-  _volume: 1
+  _volume: .707945764
   _volumeRandomization: 0
   _mute: 0
   _overrideParentPitch: 0
@@ -2950,7 +2950,7 @@ MonoBehaviour:
   _overrideFadeProperties: 0
   _fadeInTime: .5
   _fadeInCurve: .800000012
-  _fadeOutTime: 0
+  _fadeOutTime: 2.25
   _fadeOutCurve: .5
   _reverbZoneMix: 1
   _overrideBypassProperties: 0
@@ -3151,7 +3151,7 @@ MonoBehaviour:
   _overrideFadeProperties: 0
   _fadeInTime: .5
   _fadeInCurve: .800000012
-  _fadeOutTime: 0
+  _fadeOutTime: 2.25
   _fadeOutCurve: .5
   _reverbZoneMix: 1
   _overrideBypassProperties: 0
@@ -6124,7 +6124,7 @@ MonoBehaviour:
   _stealingBehaviour: 0
   _minimumPlaybackInterval: 0
   _overrideParentVolume: 0
-  _volume: 1
+  _volume: .398107171
   _volumeRandomization: 0
   _mute: 0
   _overrideParentPitch: 0
@@ -6693,7 +6693,7 @@ MonoBehaviour:
   _overrideFadeProperties: 0
   _fadeInTime: .5
   _fadeInCurve: .800000012
-  _fadeOutTime: 0
+  _fadeOutTime: 2.25
   _fadeOutCurve: .5
   _reverbZoneMix: 1
   _overrideBypassProperties: 0
