@@ -60,4 +60,21 @@ public class DifficultyController : MonoBehaviourCo {
             yield return new WaitForSeconds(intervalForProgressionChanges);
         }
     }
+
+    void FixedUpdate()
+    {
+    	// this value is being fed to the music
+    	// to play an intensity layer as the game
+    	// gets more tense.
+
+    	// It should be replaced with a value between 0 to 1.0f!
+    	float theIntensity = 0.5f;
+    
+/*		Fabric.EventManager.Instance.SetParameter("MX/Main_Loop", 
+		                                          "Intensity", 
+		                                          theIntensity, 
+		                                          null);
+*/
+    }
+
 }

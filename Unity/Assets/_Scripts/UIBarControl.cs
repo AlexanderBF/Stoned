@@ -48,6 +48,7 @@ public class UIBarControl : MonoBehaviour {
                 StoneGrower.Clean();
                 CleanParticleController.Clean(SpiritBase.SpiritType.Fire);
                 fill = 0;
+                UpdateBar(fill);
                 Debug.Log("Fire");
                 break;
 
@@ -55,6 +56,7 @@ public class UIBarControl : MonoBehaviour {
                 StoneGrower.Clean();
                 CleanParticleController.Clean(SpiritBase.SpiritType.Earth);
                 fill = 0;
+                UpdateBar(fill);
                 Debug.Log("Earth");
                 break;
 
@@ -62,6 +64,7 @@ public class UIBarControl : MonoBehaviour {
                 StoneGrower.Clean();
                 CleanParticleController.Clean(SpiritBase.SpiritType.Air);
                 fill = 0;
+                UpdateBar(fill);
                 Debug.Log("Air");
                 break;
 
@@ -69,6 +72,7 @@ public class UIBarControl : MonoBehaviour {
                 StoneGrower.Clean();
                 CleanParticleController.Clean(SpiritBase.SpiritType.Water);
                 fill = 0;
+                UpdateBar(fill);
                 Debug.Log("Water");
                 break;
 
