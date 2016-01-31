@@ -8,6 +8,8 @@ TagManager:
   - EarthPower
   - AirPower
   - WaterPower
+  - Winner
+  - Counted
   layers:
   - Default
   - TransparentFX

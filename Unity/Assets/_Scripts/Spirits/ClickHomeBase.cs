@@ -58,10 +58,10 @@ public class ClickHomeBase : MonoBehaviour {
         for(int i=0; i<all.Length; i++)
         {
             // check if it is inside inner circle
-            if(all[i].gameObject.layer == LayerManager.SpiritClearedInner)
+            if(all[i].gameObject.tag == "Winner")
             {
-                //move gameobject to a different layer
-                all[i].gameObject.layer = LayerManager.Default;
+                //tag for death
+                all[i].gameObject.tag = "Counted";
                 
                 //variable for how quickly the bars fill up
                 int increment = 100 / 10;
@@ -70,21 +70,26 @@ public class ClickHomeBase : MonoBehaviour {
                 {
                     case SpiritBase.SpiritType.Fire:
                         fireBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
+                        Debug.Log("Fire" + increment);
                         break;
                     case SpiritBase.SpiritType.Air:
                         airBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
+                        Debug.Log("Air" + increment);
                         break;
                     case SpiritBase.SpiritType.Earth:
                         earthBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
+                        Debug.Log("Earth" + increment);
                         break;
                     case SpiritBase.SpiritType.Water:
                         waterBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
+                        Debug.Log("Water" + increment);
                         break;
                     default:
+                        Debug.Log("Default?");
                         break;
                 }
             }
-            if (all[i].gameObject.layer == LayerManager.Default)
+            if (all[i].gameObject.tag == "Counted")
             {
                 Destroy(all[i].gameObject);
             }

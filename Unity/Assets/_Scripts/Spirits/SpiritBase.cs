@@ -229,6 +229,7 @@ public class SpiritBase : MonoBehaviourCo {
         else if (layer == LayerManager.InnerRingTrigger)
         {
             gameObject.layer = LayerManager.SpiritClearedInner;
+            gameObject.tag = "Winner";
             StartCoroutine(FadeOutSprite(gameObject.GetComponentInChildren<SpriteRenderer>()));
             spawnTime = -1000.0f;
 

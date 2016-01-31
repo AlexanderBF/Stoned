@@ -679,8 +679,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   days: 100
-  fadeTexture: {fileID: 2800000, guid: f82c4c9dfdc3eb44da4b4345cea4f831, type: 3}
-  fadeSpeed: .5
   sun: {fileID: 103174, guid: 31358f27b0a45b3458b037d55009b0c8, type: 2}
   spiralConstant: 0
 --- !u!114 &1092518926
@@ -694,7 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dcc60052bf32cd49bae01791eab01e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeoutTexture: {fileID: 2800000, guid: f82c4c9dfdc3eb44da4b4345cea4f831, type: 3}
+  fadeoutTexture: {fileID: 0}
   fadeSpeed: .200000003
 --- !u!1 &1138774969
 GameObject:
