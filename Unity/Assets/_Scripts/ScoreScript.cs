@@ -27,7 +27,7 @@ public class ScoreScript : MonoBehaviour {
     public IEnumerator EndGame()
     {
 		float fadeTime = GameObject.Find ("GameManager").GetComponent<Fader> ().BeginFade (1);
-        yield return new WaitForSeconds(fadeSpeed);
+        yield return new WaitForSeconds(fadeTime);
         Application.LoadLevel("EndScene");
     }
 
