@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class UIBarControl : MonoBehaviour {
@@ -46,6 +46,7 @@ public class UIBarControl : MonoBehaviour {
         {
             case "FirePower":
                 StoneGrower.Clean();
+                CleanParticleController.Clean(SpiritBase.SpiritType.Fire);
                 fill = 0;
                 UpdateBar(fill);
                 Debug.Log("Fire");
@@ -53,6 +54,7 @@ public class UIBarControl : MonoBehaviour {
 
             case "EarthPower":
                 StoneGrower.Clean();
+                CleanParticleController.Clean(SpiritBase.SpiritType.Earth);
                 fill = 0;
                 UpdateBar(fill);
                 Debug.Log("Earth");
@@ -60,6 +62,7 @@ public class UIBarControl : MonoBehaviour {
 
             case "AirPower":
                 StoneGrower.Clean();
+                CleanParticleController.Clean(SpiritBase.SpiritType.Air);
                 fill = 0;
                 UpdateBar(fill);
                 Debug.Log("Air");
@@ -67,6 +70,7 @@ public class UIBarControl : MonoBehaviour {
 
             case "WaterPower":
                 StoneGrower.Clean();
+                CleanParticleController.Clean(SpiritBase.SpiritType.Water);
                 fill = 0;
                 UpdateBar(fill);
                 Debug.Log("Water");

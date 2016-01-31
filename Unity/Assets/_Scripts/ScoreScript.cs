@@ -42,19 +42,21 @@ public class ScoreScript : MonoBehaviour {
     }
     public IEnumerator SunCounter(int count)
     {
+        float spawnDelay = .5f; 
         Vector3 spawnPos = new Vector3(0, 0, 0);
-        float spiralAngle = 0;
+        float spiralAngle = -Mathf.PI / 8;
         yield return new WaitForSeconds(2);
         while (count > 0)
         {
-            Instantiate(sun, spawnPos, Quaternion.identity);
             AudioManager.PlaySound("FX/Endgame/Score");
             //screenshake, sound effect, whatever
             spawnPos = new Vector3(spiralConstant * spiralAngle * Mathf.Cos(spiralAngle), spiralConstant * spiralAngle * Mathf.Sin(spiralAngle), 0);
-            spiralAngle += Mathf.PI / 10;
-            spiralConstant -= spiralConstant * 0.01f;
+            spiralAngle += (Mathf.PI / 2 * spiralConstant);
+            spiralConstant -= (spiralConstant - 0.15f) * 0.15f;
+            Instantiate(sun, spawnPos, Quaternion.identity);
             count--;
-            yield return new WaitForSeconds(.1f);
+            spawnDelay -= (spawnDelay - 0.1f) * 0.1f;
+            yield return new WaitForSeconds(spawnDelay);
         }
         if (Input.touchCount == 0)
         {
