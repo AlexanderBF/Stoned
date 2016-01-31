@@ -47,24 +47,28 @@ public class UIBarControl : MonoBehaviour {
             case "FirePower":
                 StoneGrower.Clean();
                 fill = 0;
+                UpdateBar(fill);
                 Debug.Log("Fire");
                 break;
 
             case "EarthPower":
                 StoneGrower.Clean();
                 fill = 0;
+                UpdateBar(fill);
                 Debug.Log("Earth");
                 break;
 
             case "AirPower":
                 StoneGrower.Clean();
                 fill = 0;
+                UpdateBar(fill);
                 Debug.Log("Air");
                 break;
 
             case "WaterPower":
                 StoneGrower.Clean();
                 fill = 0;
+                UpdateBar(fill);
                 Debug.Log("Water");
                 break;
 
