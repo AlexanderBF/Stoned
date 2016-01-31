@@ -31,7 +31,7 @@ public class ClickHomeBase : MonoBehaviour {
         {
             Touch t = Input.GetTouch(i);
             if(t.phase == TouchPhase.Began)
-            {
+			{
                 Test(t.position); 
             }
         }
@@ -55,7 +55,7 @@ public class ClickHomeBase : MonoBehaviour {
     {
         //variable for how quickly the bars fill up
         float increment = 100 / spiritsPerPower;
-        Debug.Log(increment);
+		Debug.Log(increment);
 
         // collect them al
         SpiritBase[] all = FindObjectsOfType<SpiritBase>();

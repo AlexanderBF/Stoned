@@ -61,6 +61,7 @@
      <Compile Include="Assets\_Scripts\ScoreScript.cs" />
      <Compile Include="Assets\_Scripts\ShadowProjector.cs" />
      <Compile Include="Assets\_Scripts\SoundSpiritCollectionTrigger.cs" />
+     <Compile Include="Assets\_Scripts\SpiritPool.cs" />
      <Compile Include="Assets\_Scripts\Spirits\ClickHomeBase.cs" />
      <Compile Include="Assets\_Scripts\Spirits\HomeBase.cs" />
      <Compile Include="Assets\_Scripts\Spirits\MonoBehaviourCo.cs" />
