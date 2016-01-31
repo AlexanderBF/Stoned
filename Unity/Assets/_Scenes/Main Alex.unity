@@ -667,6 +667,7 @@ GameObject:
   - 4: {fileID: 572567227}
   - 198: {fileID: 572567229}
   - 199: {fileID: 572567228}
+  - 114: {fileID: 572567230}
   m_Layer: 0
   m_Name: Spirit Pool Particles
   m_TagString: Untagged
@@ -898,7 +899,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4286611584
+        rgba: 4280295456
       minMaxState: 0
     startSize:
       scalar: 2.22000003
@@ -939,7 +940,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: -1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1061,7 +1062,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: -1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1071,7 +1072,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: -.37500003
+          value: .37500003
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1757,6 +1758,17 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!114 &572567230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 572567226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff32b170884ecb43a5879fc4144877e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &628340012
 GameObject:
   m_ObjectHideFlags: 0
@@ -3226,6 +3238,7 @@ GameObject:
   - 33: {fileID: 1933943431}
   - 64: {fileID: 1933943430}
   - 23: {fileID: 1933943429}
+  - 114: {fileID: 1933943432}
   m_Layer: 0
   m_Name: Spirit Pool
   m_TagString: Untagged
@@ -3290,6 +3303,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1933943427}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1933943432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1933943427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff32b170884ecb43a5879fc4144877e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1990232627
 GameObject:
   m_ObjectHideFlags: 0

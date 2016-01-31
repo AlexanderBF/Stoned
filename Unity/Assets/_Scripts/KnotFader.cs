@@ -10,6 +10,7 @@ public class KnotFader : MonoBehaviour {
 	}
 
 	public void enableMeshRenderer() {
+		FindObjectOfType<SpiritPool>().brightenPool();
 		GetComponent<MeshRenderer> ().enabled = true;
 		fadeoutMaterial.color = Color.Lerp (Color.white, clear, Mathf.PingPong (Time.time, 1));
 		Invoke ("disableMeshRenderer", 1);
