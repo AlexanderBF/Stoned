@@ -158,7 +158,7 @@ public class SpiritBase : MonoBehaviourCo {
                 // GAME OVER
                 ScoreScript scoreScript = GameObject.Find("GameManager").GetComponent<ScoreScript>();
                 scoreScript.SendMessage("EndGame");
-                Debug.LogError("GAME OVER!");
+                Debug.Log("GAME OVER!");
             }
             
             Die();

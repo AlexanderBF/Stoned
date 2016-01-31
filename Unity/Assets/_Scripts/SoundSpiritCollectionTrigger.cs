@@ -9,6 +9,13 @@ public class SoundSpiritCollectionTrigger : MonoBehaviour {
 		AudioManager.PlaySound("FX/Gameplay/Spirits/Collected", this.gameObject);
 
         other.gameObject.layer = LayerManager.Spirit;
+
+        // sorry about this hack future programmer
+        ParticleSystem[] particles = other.gameObject.GetComponentsInChildren<ParticleSystem>();
+        foreach(ParticleSystem ps in particles)
+        {
+            ps.Stop();
+        }
 	}
 	
 }
