@@ -52,6 +52,7 @@
      <Compile Include="Assets\_Scripts\DayNightCycle.cs" />
      <Compile Include="Assets\_Scripts\DetectTouch.cs" />
      <Compile Include="Assets\_Scripts\DetectTouchSlide.cs" />
+     <Compile Include="Assets\_Scripts\DifficultyController.cs" />
      <Compile Include="Assets\_Scripts\Fader.cs" />
      <Compile Include="Assets\_Scripts\GameManager.cs" />
      <Compile Include="Assets\_Scripts\ScoreScript.cs" />

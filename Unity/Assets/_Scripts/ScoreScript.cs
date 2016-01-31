@@ -9,7 +9,6 @@ public class ScoreScript : MonoBehaviour {
 
     GameObject mainCam;
     float alpha;
-    int fade = 0;
 
     void Awake()
     {
@@ -67,7 +66,6 @@ public class ScoreScript : MonoBehaviour {
         if (Application.loadedLevelName == "EndScene")
         {
             mainCam = GameObject.FindGameObjectWithTag("MainCamera");
-            fade = -1;
             if (days > 0)
             {
                 StartCoroutine(SunCounter(days));
