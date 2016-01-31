@@ -8,7 +8,8 @@ public class SoundSpiritCollectionTrigger : MonoBehaviour {
 		Debug.Log("We have collected a spirit!");
 		AudioManager.PlaySound("FX/Gameplay/Spirits/Collected", this.gameObject);
 
-        other.gameObject.layer = LayerManager.Spirit;
+		other.gameObject.layer = LayerManager.Spirit;
+		FindObjectOfType<KnotFader>().enableMeshRenderer();
 
         // sorry about this hack future programmer
         ParticleSystem[] particles = other.gameObject.GetComponentsInChildren<ParticleSystem>();
