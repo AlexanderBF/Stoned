@@ -73,22 +73,17 @@ public class ClickHomeBase : MonoBehaviour {
                     {
                         case SpiritBase.SpiritType.Fire:
                             fireBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
-                            Debug.Log("Fire" + increment);
                             break;
                         case SpiritBase.SpiritType.Air:
                             airBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
-                            Debug.Log("Air" + increment);
                             break;
                         case SpiritBase.SpiritType.Earth:
                             earthBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
-                            Debug.Log("Earth" + increment);
                             break;
                         case SpiritBase.SpiritType.Water:
                             waterBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
-                            Debug.Log("Water" + increment);
                             break;
                         default:
-                            Debug.Log("Default?");
                             break;
                     }
                 }
@@ -129,7 +124,6 @@ public class ClickHomeBase : MonoBehaviour {
                 target = waterBar;
                 break;
             default:
-                Debug.Log("default particles");
                 particles = null;
                 target = null;
                 break;
@@ -137,6 +131,7 @@ public class ClickHomeBase : MonoBehaviour {
 
        var particleObject =  Instantiate(particles, gameObject.transform.position, Quaternion.identity) as GameObject;
         particleObject.GetComponent<ParticleSystem>().startSize *= 0.3f;
+        particleObject.GetComponent<ParticleSystem>().Stop();
         AudioManager.PlaySound("FX/Gameplay/Spirits/Totem-Move", particleObject);
 
         while (Vector3.SqrMagnitude(target.transform.position - particleObject.transform.position) >= 5)

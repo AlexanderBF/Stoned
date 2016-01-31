@@ -47,10 +47,6 @@ public class ScoreScript : MonoBehaviour {
             spawnDelay -= (spawnDelay - 0.1f) * 0.1f;
             yield return new WaitForSeconds(spawnDelay);
         }
-        if (Input.touchCount == 0)
-        {
-            yield return new WaitForSeconds(2);
-        }
         yield return StartCoroutine(RestartGame());
     }
 
