@@ -10,7 +10,7 @@ public class DayNightCycle : MonoBehaviour {
 
     void Start()
     {
-        // score = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreScript>();
+        score = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreScript>();
     }
 	
 	// Update is called once per frame
@@ -18,6 +18,6 @@ public class DayNightCycle : MonoBehaviour {
         transform.Rotate(Vector3.forward, Time.deltaTime * 360.0f / dayLengthInSeconds);
         sun.intensity = lightIntensity.Evaluate(Time.timeSinceLevelLoad / dayLengthInSeconds);
 
-        //score.days = Mathf.RoundToInt(Time.time / dayLengthInSeconds);
+        score.days = Mathf.RoundToInt(Time.time / dayLengthInSeconds);
 	}
 }

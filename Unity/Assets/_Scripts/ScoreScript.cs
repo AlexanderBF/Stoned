@@ -15,17 +15,6 @@ public class ScoreScript : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
-    //for testing
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (Application.loadedLevelName == "Main Alex")
-            {
-                StartCoroutine(EndGame());
-            }
-        }
-    }
 
     public IEnumerator EndGame()
     {
