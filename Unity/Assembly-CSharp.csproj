@@ -52,9 +52,11 @@
      <Compile Include="Assets\_Scripts\DayNightCycle.cs" />
      <Compile Include="Assets\_Scripts\DetectTouch.cs" />
      <Compile Include="Assets\_Scripts\DetectTouchSlide.cs" />
+     <Compile Include="Assets\_Scripts\Fader.cs" />
      <Compile Include="Assets\_Scripts\GameManager.cs" />
      <Compile Include="Assets\_Scripts\ScoreScript.cs" />
      <Compile Include="Assets\_Scripts\ShadowProjector.cs" />
+     <Compile Include="Assets\_Scripts\SoundSpiritCollectionTrigger.cs" />
      <Compile Include="Assets\_Scripts\Spirits\ClickHomeBase.cs" />
      <Compile Include="Assets\_Scripts\Spirits\HomeBase.cs" />
      <Compile Include="Assets\_Scripts\Spirits\MonoBehaviourCo.cs" />
@@ -65,6 +67,8 @@
      <Compile Include="Assets\_Scripts\Spirits\SpiritSpawner.cs" />
      <Compile Include="Assets\_Scripts\Spirits\SpiritWater.cs" />
      <Compile Include="Assets\_Scripts\StartGame.cs" />
+     <Compile Include="Assets\_Scripts\StoneBaseAnim.cs" />
+     <Compile Include="Assets\_Scripts\StoneGrowAnim.cs" />
      <Compile Include="Assets\_Scripts\StoneGrower.cs" />
      <Compile Include="Assets\_Scripts\StoneSpawner.cs" />
      <Compile Include="Assets\_Scripts\UIBarControl.cs" />

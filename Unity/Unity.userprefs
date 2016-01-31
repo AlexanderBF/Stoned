@@ -1,11 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\VibrationPlugin\Sources\Vibration.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\StartGame.cs">
     <Files>
-      <File FileName="Assets\_Scripts\DetectTouchSlide.cs" Line="11" Column="32" />
-      <File FileName="Assets\_Scripts\Spirits\HomeBase.cs" Line="1" Column="1" />
-      <File FileName="Assets\_Scripts\Spirits\SpiritBase.cs" Line="231" Column="1" />
-      <File FileName="Assets\VibrationPlugin\Sources\Vibration.cs" Line="25" Column="32" />
+      <File FileName="Assets\_Scripts\StartGame.cs" Line="21" Column="87" />
+      <File FileName="Assets\_Scripts\Fader.cs" Line="28" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
