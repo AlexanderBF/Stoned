@@ -4,6 +4,7 @@ using System.Collections;
 public class ClickHomeBase : MonoBehaviour {
 
     public float particleSpeedMultiplier = 2;
+    public static float spiritsPerPower = 5;
 
     public Collider homeCollider;
     GameObject fireBar;
@@ -26,7 +27,7 @@ public class ClickHomeBase : MonoBehaviour {
 
     void Update()
     {
-        for(int i=0; i<Input.touchCount; i++)
+        for (int i=0; i<Input.touchCount; i++)
         {
             Touch t = Input.GetTouch(i);
             if(t.phase == TouchPhase.Began)
@@ -52,49 +53,52 @@ public class ClickHomeBase : MonoBehaviour {
 
     IEnumerator Collect()
     {
+        //variable for how quickly the bars fill up
+        float increment = 100 / spiritsPerPower;
+        Debug.Log(increment);
+
         // collect them al
         SpiritBase[] all = FindObjectsOfType<SpiritBase>();
 
-        for(int i=0; i<all.Length; i++)
-        {
-            // check if it is inside inner circle
-            if(all[i].gameObject.tag == "Winner")
+            for (int i = 0; i < all.Length; i++)
             {
-                //tag for death
-                all[i].gameObject.tag = "Counted";
-                
-                //variable for how quickly the bars fill up
-                int increment = 100 / 10;
-                // Take me to your leader
-                switch (all[i].type)
+                // check if it is inside inner circle
+                if (all[i].gameObject.tag == "Winner")
                 {
-                    case SpiritBase.SpiritType.Fire:
-                        fireBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
-                        Debug.Log("Fire" + increment);
-                        break;
-                    case SpiritBase.SpiritType.Air:
-                        airBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
-                        Debug.Log("Air" + increment);
-                        break;
-                    case SpiritBase.SpiritType.Earth:
-                        earthBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
-                        Debug.Log("Earth" + increment);
-                        break;
-                    case SpiritBase.SpiritType.Water:
-                        waterBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
-                        Debug.Log("Water" + increment);
-                        break;
-                    default:
-                        Debug.Log("Default?");
-                        break;
+                    //tag for death
+                    all[i].gameObject.tag = "Counted";
+
+                    // Take me to your leader
+                    switch (all[i].type)
+                    {
+                        case SpiritBase.SpiritType.Fire:
+                            fireBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
+                            Debug.Log("Fire" + increment);
+                            break;
+                        case SpiritBase.SpiritType.Air:
+                            airBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
+                            Debug.Log("Air" + increment);
+                            break;
+                        case SpiritBase.SpiritType.Earth:
+                            earthBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
+                            Debug.Log("Earth" + increment);
+                            break;
+                        case SpiritBase.SpiritType.Water:
+                            waterBar.GetComponent<UIBarControl>().StartCoroutine("UpdateBar", increment);
+                            Debug.Log("Water" + increment);
+                            break;
+                        default:
+                            Debug.Log("Default?");
+                            break;
+                    }
                 }
+                if (all[i].gameObject.tag == "Counted")
+                {
+                    StartCoroutine(Particles(all[i]));
+                    Destroy(all[i].gameObject);
+                }
+            yield return null;
             }
-            if (all[i].gameObject.tag == "Counted")
-            {
-                Destroy(all[i].gameObject);
-            }
-            yield return StartCoroutine(Particles(all[i]));
-        }
 
 
         yield return null;
@@ -125,6 +129,7 @@ public class ClickHomeBase : MonoBehaviour {
                 target = waterBar;
                 break;
             default:
+                Debug.Log("default particles");
                 particles = null;
                 target = null;
                 break;

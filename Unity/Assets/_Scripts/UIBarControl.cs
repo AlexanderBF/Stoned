@@ -16,6 +16,7 @@ public class UIBarControl : MonoBehaviour {
         maskTransform = mask.GetComponent<RectTransform>();
         particles = gameObject.GetComponentInChildren<ParticleSystem>();
 
+
     }
 
     //public function for updating the bars
@@ -44,18 +45,26 @@ public class UIBarControl : MonoBehaviour {
         switch (gameObject.tag)
         {
             case "FirePower":
+                StoneGrower.Clean();
+                fill = 0;
                 Debug.Log("Fire");
                 break;
 
             case "EarthPower":
+                StoneGrower.Clean();
+                fill = 0;
                 Debug.Log("Earth");
                 break;
 
             case "AirPower":
+                StoneGrower.Clean();
+                fill = 0;
                 Debug.Log("Air");
                 break;
 
             case "WaterPower":
+                StoneGrower.Clean();
+                fill = 0;
                 Debug.Log("Water");
                 break;
 

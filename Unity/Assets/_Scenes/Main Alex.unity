@@ -163,6 +163,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 79810047}
   - 114: {fileID: 79810046}
+  - 114: {fileID: 79810048}
   m_Layer: 17
   m_Name: Difficulty Controller
   m_TagString: Untagged
@@ -265,6 +266,21 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+  requiredSpirits:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 600
+      value: 5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   intervalForProgressionChanges: 5
 --- !u!4 &79810047
 Transform:
@@ -278,6 +294,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &79810048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 79810045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5a760b4166a484fb746049aacd8da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size3x4: 8.43999958
+  size9x16: 10.71
 --- !u!1 &174253589
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +369,7 @@ MonoBehaviour:
     m_Bits: 16384
   myCollider: {fileID: 1929372098}
   maxRotationSpeed: 25
+  audioTarget: {fileID: 10712921}
   rotateAngle: 0
 --- !u!1 &201445622
 GameObject:
@@ -697,8 +727,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 628340012}
   m_LocalRotation: {x: -.00155026594, y: -.707105339, z: .707104921, w: .00155041367}
-  m_LocalPosition: {x: -0, y: 3.5, z: .200000003}
-  m_LocalScale: {x: 1.84393466, y: 2.45857954, z: 2.45857954}
+  m_LocalPosition: {x: -0, y: 2.23000002, z: .200000003}
+  m_LocalScale: {x: 1.28999996, y: 2.45857954, z: 1.69000006}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
@@ -1112,6 +1142,7 @@ MonoBehaviour:
     m_Bits: 16384
   myCollider: {fileID: 385369472}
   maxRotationSpeed: 25
+  audioTarget: {fileID: 370253927}
   rotateAngle: 0
 --- !u!1 &1286102587
 GameObject:

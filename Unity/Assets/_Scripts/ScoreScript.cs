@@ -44,6 +44,7 @@ public class ScoreScript : MonoBehaviour {
     {
         Vector3 spawnPos = new Vector3(0, 0, 0);
         float spiralAngle = 0;
+        yield return new WaitForSeconds(2);
         while (count > 0)
         {
             Instantiate(sun, spawnPos, Quaternion.identity);
